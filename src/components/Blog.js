@@ -2,6 +2,7 @@ import React, { useState }  from 'react'
 import Axios from 'axios'
 const baseUrl = '/api/blogs'
 
+//Individual blog posts
 const Blog = ({ blog }) => {
   
   const [localBlogState, setLocalBlogState] = useState(blog)
