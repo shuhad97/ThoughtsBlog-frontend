@@ -38,7 +38,6 @@ const App = () => {
 
     }
     
-
   }
 
   //Loads all of the forms
@@ -46,12 +45,10 @@ const App = () => {
 
     return(
     <div>
-       <UserInfo user = {user} setUser = {setUser}/>
+
+      <UserInfo user = {user} setUser = {setUser}/>
       <BlogForm blogs = {blogs} setBlogs = {setBlogs}/>
       {loadBlogs()}
-     
-   
-
     </div>
     )
   
@@ -59,14 +56,11 @@ const App = () => {
 
 const loginForm = () =>{
 
-
   return(
       <Login setUsername = {setUsername} setPassword = {setPassword} 
       loginHandle = {loginHandle} />
-
   )
 
-  
 }
  
 
@@ -75,9 +69,8 @@ const loginForm = () =>{
     return (
      
     blogs.map(blog =>
-        <Blog key={blog.id} blog={blog} />
+        <Blog key={blog.id} blog={blog} blogs = {blogs} />
       )
-
     )
 
   }
@@ -86,9 +79,10 @@ const loginForm = () =>{
  
 
   useEffect(() => {
-   blogService.getAll().then(blogs =>
+    
+    blogService.getAll().then(blogs =>
             setBlogs( blogs )
-  )
+    )
     const localData = window.localStorage.getItem('user')
 
     if(localData){
@@ -104,7 +98,7 @@ const loginForm = () =>{
     <div>
       { user === null && loginForm() } 
       <h2>blogs</h2> 
-
+     
       {user !== null && loadData()}
 
  

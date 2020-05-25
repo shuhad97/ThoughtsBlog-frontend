@@ -1,17 +1,33 @@
-import React from 'react'
+import React, { useState}  from 'react'
 import blogPostService from '../services/blogPostService'
 
 
 let blogs= undefined
 let setBlogs = undefined
 
-const forms = (props) =>{
+const Forms = (props) =>{
+
+
+    const [formVisible, setFormVisible] = useState(false)
 
      blogs = props.blogs
      setBlogs = props.setBlogs
-
+     const hideButton = {
+        display: formVisible ? 'None' : '' //Button Shows when formVisible false
+      }
+      const showForm = {
+          display: formVisible? '' : 'None' 
+      }
+    
     return(
-        <form onSubmit = {blogPostHandle}>
+    
+    <div>
+        <button style = {showForm} onClick = {()=>{setFormVisible(false)}}>Hide blog form</button>
+
+        <button style = {hideButton} onClick = {()=>{setFormVisible(true)}}>Show blog form</button>
+    
+
+        <form style ={showForm}  onSubmit = {blogPostHandle}>
 
             Title <input name="title" type="text" />
             Author <input name="author" type="text" />
@@ -22,6 +38,8 @@ const forms = (props) =>{
 
 
         </form>
+        
+    </div>
     )
 
     
@@ -32,7 +50,7 @@ const blogPostHandle = (event) =>{
 
     const target = event.target
     const authorization = JSON.parse(window.localStorage.getItem('user')).token
-   
+  
     const data = {
         title: target.title.value,
         author: target.author.value,
@@ -45,4 +63,4 @@ const blogPostHandle = (event) =>{
 
 }
 
-export default forms
+export default Forms
