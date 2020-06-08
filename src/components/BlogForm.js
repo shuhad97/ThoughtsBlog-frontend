@@ -1,7 +1,6 @@
 import React, { useState}  from 'react'
 import blogPostService from '../services/blogPostService'
 
-
 let blogs= undefined
 let setBlogs = undefined
 
@@ -62,5 +61,8 @@ const blogPostHandle = (event) =>{
     setBlogs(newBlogList)
 
 }
+
+
+
 
 export default Forms

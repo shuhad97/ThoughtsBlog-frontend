@@ -10,7 +10,8 @@ const Blog = ({ blog }) => {
 
   return(
   <div>
-    {localBlogState.title} {localBlogState.author} Likes {localBlogState.likes} 
+    <h1 className = "title">{localBlogState.title}</h1>
+    <p className = "author">{localBlogState.author}</p> <p>Likes {localBlogState.likes} </p>
    
     <button onClick={() => {
 
@@ -25,17 +26,17 @@ const Blog = ({ blog }) => {
 
 const updateLike = (localBlogState, setLocalBlogState ) =>{
 
-const updateData ={
-  ...localBlogState,
-  likes : localBlogState.likes +1
-}
+  const updateData ={
+    ...localBlogState,
+    likes : localBlogState.likes +1
+  }
 
-Axios.put(baseUrl +`/${localBlogState.id}`, updateData)
-.then(response =>{
-    
-  setLocalBlogState(response.data)
+  Axios.put(baseUrl +`/${localBlogState.id}`, updateData)
+  .then(response =>{
+      
+    setLocalBlogState(response.data)
 
-})
+  })
 
 
 }

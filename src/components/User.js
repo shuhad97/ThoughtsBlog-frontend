@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 
 const login = (props) =>{
    
@@ -7,7 +7,7 @@ const login = (props) =>{
     const setUser = props.setUser
   
 
-   console.log(user)
+   
 return (
 <div>
  
@@ -20,6 +20,13 @@ return (
 </div>
 
 )
+}
+
+login.propTypes = {
+
+    user: PropTypes.object.isRequired
+
+
 }
 
 

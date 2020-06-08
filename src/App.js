@@ -86,9 +86,9 @@ const loginForm = () =>{
     const localData = window.localStorage.getItem('user')
 
     if(localData){
-      console.log(localData)
       
       setUser(JSON.parse(localData))
+      
     }
 
   
