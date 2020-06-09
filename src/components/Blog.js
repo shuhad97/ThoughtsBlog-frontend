@@ -11,12 +11,13 @@ const Blog = ({ blog }) => {
   return(
   <div>
     <h1 className = "title">{localBlogState.title}</h1>
-    <p className = "author">{localBlogState.author}</p> <p>Likes {localBlogState.likes} </p>
+    <p className = "author">{localBlogState.author}</p>
+    Likes<p className = "likes">{localBlogState.likes}</p>
    
-    <button onClick={() => {
+    <button className ="likesBtn" onClick={() => {
 
         updateLike(localBlogState , setLocalBlogState)
-
+        
     }} >like!</button>
 
   </div>

@@ -11,6 +11,7 @@ const App = () => {
 
   const [blogs, setBlogs] = useState([])
   const [user, setUser] = useState(null)
+  const [formVisible, setFormVisible] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -47,7 +48,7 @@ const App = () => {
     <div>
 
       <UserInfo user = {user} setUser = {setUser}/>
-      <BlogForm blogs = {blogs} setBlogs = {setBlogs}/>
+      <BlogForm blogs = {blogs} setBlogs = {setBlogs} formVisible ={formVisible} setFormVisible ={ setFormVisible}/>
       {loadBlogs()}
     </div>
     )

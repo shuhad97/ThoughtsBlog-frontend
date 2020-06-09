@@ -21,9 +21,9 @@ const Forms = (props) =>{
     return(
     
     <div>
-        <button style = {showForm} onClick = {()=>{setFormVisible(false)}}>Hide blog form</button>
+        <button className = "hide" style = {showForm} onClick = {()=>{setFormVisible(false)}}>Hide blog form</button>
 
-        <button style = {hideButton} onClick = {()=>{setFormVisible(true)}}>Show blog form</button>
+        <button className = "display" style = {hideButton} onClick = {()=>{setFormVisible(true)}}>Show blog form</button>
     
 
         <form style ={showForm}  onSubmit = {blogPostHandle}>

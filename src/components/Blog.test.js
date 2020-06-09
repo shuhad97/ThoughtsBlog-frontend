@@ -1,16 +1,20 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { render } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import Blog from './Blog'
 
-test('Login form check', ()=>{
 
-    const id = 1;
-    const blog = {
-        title: "The pandemic",
-        author: "Shuhad",
-        likes : 3
-    }
+const id = 1;
+
+const blog = {
+
+    title: "The pandemic",
+    author: "Shuhad",
+    likes : 3
+    
+}
+
+test('Login form check', ()=>{
 
     let component = render(<Blog  key = {id}  blog = {blog}/>)
     const title = component.container.querySelector('.title')
@@ -18,3 +22,26 @@ test('Login form check', ()=>{
     expect(title).toHaveTextContent("The pandemic")
 
 })
+
+test('Blog author check', ()=>{
+
+
+    let component = render(<Blog  key = {id}  blog = {blog}/>)
+    const author = component.container.querySelector('.author')
+
+    expect(author).toHaveTextContent("Shuhad")
+
+
+})
+
+test('Blog likes visibility check', ()=>{
+
+
+    let component = render(<Blog  key = {id}  blog = {blog}/>)
+    const likes = component.container.querySelector('.likes')
+
+    expect(likes).toHaveTextContent("3")
+
+
+})
+
