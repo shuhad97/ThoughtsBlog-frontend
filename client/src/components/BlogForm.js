@@ -7,8 +7,10 @@ let setBlogs = undefined
 const Forms = (props) =>{
 
 
-    const [formVisible, setFormVisible] = useState(false)
+    
 
+     const formVisible = props.formVisible
+     const setFormVisible = props.setFormVisible
      blogs = props.blogs
      setBlogs = props.setBlogs
      const hideButton = {
