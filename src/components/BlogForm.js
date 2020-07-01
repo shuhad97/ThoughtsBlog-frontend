@@ -32,6 +32,8 @@ const Forms = (props) =>{
 
             Title <input name="title" type="text" />
             Author <input name="author" type="text" />
+            Content <textarea name = "content"  ></textarea>
+            
             URL <input name="url" type="text" />
 
             
@@ -55,8 +57,10 @@ const blogPostHandle = (event) =>{
     const data = {
         title: target.title.value,
         author: target.author.value,
-        url: target.url.value
+        url: target.url.value,
+        content: target.content.value
     }
+
 
     blogPostService.post(authorization, data)
     const newBlogList = blogs.concat(data)
