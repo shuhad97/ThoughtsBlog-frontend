@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Blog from './components/Blog'
 import Login from './components/Login'
+import Register from './components/Register'
 import UserInfo from './components/User'
 import BlogForm from './components/BlogForm'
 import blogService from './services/blogs'
@@ -11,15 +12,17 @@ const App = () => {
 
   const [blogs, setBlogs] = useState([])
   const [user, setUser] = useState(null)
-  const [formVisible, setFormVisible] = useState(false)
+  const [formVisible, setFormVisible] = useState(false) //Blog entry form
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  
 
-  const loginHandle = async (event) =>{
+  //Handles log in data
+  const loginHandle = async (event) => {
 
     event.preventDefault();
 
-    try{
+    try {
       const loginResponse = await loginService.loginProcess(username, password)
       const localData = {
 
@@ -27,83 +30,98 @@ const App = () => {
         token: loginResponse.token
 
       }
-      window.localStorage.setItem('user', JSON.stringify(localData) )
-     
+      window.localStorage.setItem('user', JSON.stringify(localData))
+
       setUser(loginResponse)
       setUsername('')
       setPassword('')
 
-    } catch(err){
+    } catch (err) {
 
       console.log('wrong details')
 
     }
-    
+
   }
 
-  //Loads all of the forms
-  const loadData = ()=>{
+  const registerHandle = async(event) =>{
 
-    return(
-    <div>
 
-      <UserInfo user = {user} setUser = {setUser}/>
-      <BlogForm blogs = {blogs} setBlogs = {setBlogs} formVisible ={formVisible} setFormVisible ={ setFormVisible}/>
-      {loadBlogs()}
-    </div>
-    )
-  
+
+
   }
 
-const loginForm = () =>{
+  //Loads each blog entry
+  const loadBlogs = () => {
 
-  return(
-      <Login setUsername = {setUsername} setPassword = {setPassword} 
-      loginHandle = {loginHandle} />
-  )
-
-}
- 
-
-  const loadBlogs = () =>{
-    
     return (
-     
-    blogs.map(blog =>
-        <Blog key={blog.id} blog={blog} blogs = {blogs} />
+
+      blogs.map(blog =>
+        <Blog key={blog.id} blog={blog} blogs={blogs} />
       )
     )
 
   }
 
-  
- 
+  //Loads all of the forms
+  const loadData = () => {
+
+    return (
+      <div>
+
+        <UserInfo user={user} setUser={setUser} />
+        <BlogForm blogs={blogs} setBlogs={setBlogs} formVisible={formVisible} setFormVisible={setFormVisible} />
+
+      </div>
+    )
+
+  }
+
+  const registerForm = () =>{
+
+    return(
+      <Register />
+    )
+  }
+
+  const loginForm = () => {
+
+    return (
+
+      <Login setUsername={setUsername} setPassword={setPassword}
+        loginHandle={loginHandle} />
+
+    )
+
+  }
 
   useEffect(() => {
-    
+
     blogService.getAll().then(blogs =>
-            setBlogs( blogs )
+
+      setBlogs(blogs)
+
     )
     const localData = window.localStorage.getItem('user')
 
-    if(localData){
-      
+    if (localData) {
+
       setUser(JSON.parse(localData))
-      
+
     }
 
-  
-}, [])
+
+  }, [])
 
   return (
     <div>
-      { user === null && loginForm() } 
-      <h2>blogs</h2> 
-     
-      {user !== null && loadData()}
 
- 
-      
+      {user === null && loginForm()}
+      {user == null && registerForm()}
+      <h2>blogs</h2>
+      {user !== null && loadData()}
+      {loadBlogs()}
+
     </div>
   )
 }

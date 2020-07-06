@@ -1,59 +1,44 @@
-import React, { useState}  from 'react'
+import React from 'react'
 import blogPostService from '../services/blogPostService'
 
-let blogs= undefined
+let blogs = undefined
 let setBlogs = undefined
 
-const Forms = (props) =>{
+const Forms = (props) => {
 
+    const formVisible = props.formVisible
+    const setFormVisible = props.setFormVisible
+    blogs = props.blogs
+    setBlogs = props.setBlogs
+    const hideButton = { display: formVisible ? 'None' : ''} //Button Shows when formVisible false
+    const showForm = {display: formVisible ? '' : 'None'}
 
-    
+    return (
 
-     const formVisible = props.formVisible
-     const setFormVisible = props.setFormVisible
-     blogs = props.blogs
-     setBlogs = props.setBlogs
-     const hideButton = {
-        display: formVisible ? 'None' : '' //Button Shows when formVisible false
-      }
-      const showForm = {
-          display: formVisible? '' : 'None' 
-      }
-    
-    return(
-    
-    <div>
-        <button className = "hide" style = {showForm} onClick = {()=>{setFormVisible(false)}}>Hide blog form</button>
+        <div>
+            <button className="hide" style={showForm} onClick={() => { setFormVisible(false) }}>Hide blog form</button>
+            <button className="display" style={hideButton} onClick={() => { setFormVisible(true) }}>Show blog form</button>
+            <form style={showForm} onSubmit={blogPostHandle}>
 
-        <button className = "display" style = {hideButton} onClick = {()=>{setFormVisible(true)}}>Show blog form</button>
-    
+                Title <input name="title" type="text" />
+                Author<input name="author" type="text" />
+                Content<textarea name="content"  ></textarea>
+                URL<input name="url" type="text" />
+                <input id="submitBtn" type="submit" value="Post" />
 
-        <form style ={showForm}  onSubmit = {blogPostHandle}>
-
-            Title <input name="title" type="text" />
-            Author <input name="author" type="text" />
-            Content <textarea name = "content"  ></textarea>
-            
-            URL <input name="url" type="text" />
-
-            
-           <input id = "submitBtn" type = "submit" value = "Post"/>
-
-
-        </form>
-        
-    </div>
+            </form>
+        </div>
     )
 
-    
+
 }
 
-const blogPostHandle = (event) =>{
-    event.preventDefault()    
-
+const blogPostHandle = (event) => {
+   
+    event.preventDefault()
     const target = event.target
     const authorization = JSON.parse(window.localStorage.getItem('user')).token
-  
+
     const data = {
         title: target.title.value,
         author: target.author.value,
@@ -61,14 +46,10 @@ const blogPostHandle = (event) =>{
         content: target.content.value
     }
 
-
     blogPostService.post(authorization, data)
     const newBlogList = blogs.concat(data)
     setBlogs(newBlogList)
-
 }
-
-
 
 
 export default Forms
