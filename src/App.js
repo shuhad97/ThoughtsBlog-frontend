@@ -6,18 +6,21 @@ import UserInfo from './components/User'
 import BlogForm from './components/BlogForm'
 import blogService from './services/blogs'
 import loginService from './services/loginService'
-
+import registerService from './services/registerService'
 
 const App = () => {
 
   const [blogs, setBlogs] = useState([])
   const [user, setUser] = useState(null)
   const [formVisible, setFormVisible] = useState(false) //Blog entry form
+  const [registerSuccess, setRegisterSuccess] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  
+  const [registerUsername, setRegisterUsername] = useState('')
+  const [registerPassword, setRegisterPassword] = useState('')
+  const [name, setName] = useState('')
 
-  //Handles log in data
+  //Handles log in data from submitting 
   const loginHandle = async (event) => {
 
     event.preventDefault();
@@ -44,10 +47,14 @@ const App = () => {
 
   }
 
-  const registerHandle = async(event) =>{
+  //Handles register data from submitting
+  const registerHandle = async (event) =>{
 
+    event.preventDefault();
 
+    const registerResponse = await registerService.registerProcess(registerUsername, name, registerPassword)
 
+    console.log(registerResponse)
 
   }
 
@@ -77,13 +84,19 @@ const App = () => {
 
   }
 
+  //Loads register form component 
   const registerForm = () =>{
 
     return(
-      <Register />
+    
+    <Register setUsername = {setRegisterUsername} setPassword = {setRegisterPassword} setName = {setName}
+    registerHandle = {registerHandle} />
+    
     )
+
   }
 
+  //Loads login form component 
   const loginForm = () => {
 
     return (
