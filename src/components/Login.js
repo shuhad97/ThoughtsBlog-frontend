@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from '@material-ui/core/Button';
+import { TextField } from '@material-ui/core';
 
 
 
@@ -13,13 +15,15 @@ const Login = (props) => {
 
 
   return (
+    
     <div>
 
       <form onSubmit={loginHandle}>
-
-        Username <input name="username" onChange={({ target }) => setUsername(target.value)} />
-        Password <input name="password" type="password" onChange={({ target }) => setPassword(target.value)} />
-        <input id="loginBtn" type="submit" value="login" />
+      
+      <TextField id="username" label="Username" variant="outlined" size ="small" onChange={({ target }) => setUsername(target.value)} />
+      <TextField id="password" label="Password" type = "password" variant="outlined" size ="small"  onChange={({ target }) => setPassword(target.value)} />
+      <Button id="loginBtn" type="submit" variant="contained" color ="primary" > Login </Button>
+        
 
       </form>
     </div>
