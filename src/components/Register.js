@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { TextField } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+
 
 
 
@@ -16,14 +19,16 @@ const Register = (props) => {
     <div>
       <h2>Register</h2>
       <form name = "registerForm" onSubmit={registerHandle}>
-            
-        Username<input name ="username" onChange = {({ target }) => setUsername(target.value)}/>
-        Password<input name = "password" onChange = {({ target }) => setPassword(target.value)}/>
-        confirm password <input name = "confirmPassword" onChange = {({ target }) => setConfirmPasswword(target.value)}/>
-        Name/Author<input name ="name" onChange = {({ target }) => setName(target.value)}/>
+        
+        <TextField name ="username" label = "username" variant="filled" size ="small"  onChange = {({ target }) => setUsername(target.value)}></TextField>    
+        <TextField name ="password" label = "password" type ="password" variant="filled" size ="small"  onChange = {({ target }) => setPassword(target.value)}></TextField>    
+        <TextField name ="confirmPassword"  type ="password" label = "Confirm Password" variant="filled" size ="small" onChange = {({ target }) => setConfirmPasswword(target.value)} ></TextField>    
+        <TextField name ="name" label = "Name/Author" variant="filled" size ="small" onChange = {({ target }) => setName(target.value)} ></TextField>    
+
+        <Button id="registerBtn" type="submit" variant="contained" color ="secondary" > Register </Button>
+
 
             
-        <input id="registerBtn" type="submit" value="Register" />
 
         </form>
       </div>
