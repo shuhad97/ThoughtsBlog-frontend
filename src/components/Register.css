@@ -1,0 +1,13 @@
+
+#registerFields, #registerFields li {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    width: 220px;
+    margin-bottom: 10px;
+}
+
+#registerBtn{
+    display: flex;
+    justify-content: center;
+}
