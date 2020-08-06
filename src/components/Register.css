@@ -1,13 +1,13 @@
 
-#registerFields, #registerFields li {
+#registerFields  {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    
     list-style-type: none;
-    width: 220px;
-    margin-bottom: 10px;
+    
 }
+p{
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    margin-right: 10px;
 
-#registerBtn{
-    display: flex;
-    justify-content: center;
 }

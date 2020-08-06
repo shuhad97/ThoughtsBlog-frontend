@@ -7,6 +7,7 @@ import BlogForm from './components/BlogForm'
 import blogService from './services/blogs'
 import loginService from './services/loginService'
 import registerService from './services/registerService'
+import './App.css'
 
 const App = () => {
 
@@ -129,8 +130,15 @@ const App = () => {
   return (
     <div>
 
-      {user === null && loginForm()}
-      {user == null && registerForm()}
+      <div id = "header">
+        <div id="loginForm">
+          {user === null && loginForm()}
+        </div>
+        <div id="registerForm">
+
+          {user == null && registerForm()}
+        </div>
+      </div>
       <h2>blogs</h2>
       {user !== null && loadData()}
       {loadBlogs()}
