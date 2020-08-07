@@ -8,6 +8,7 @@ import blogService from './services/blogs'
 import loginService from './services/loginService'
 import registerService from './services/registerService'
 import './App.css'
+import { createMuiTheme } from '@material-ui/core/styles';
 
 const App = () => {
 

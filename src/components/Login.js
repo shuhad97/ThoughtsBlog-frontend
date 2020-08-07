@@ -16,11 +16,12 @@ const Login = (props) => {
 
   return (
     
-    <div id = "loginForm">
+    <div id = "loginForms">
 
       <form onSubmit={loginHandle}>
-      
-      <TextField id="username" label="Username" variant="outlined" size ="small" onChange={({ target }) => setUsername(target.value)} />
+
+      <label id= "loginText">Login </label>  
+      <TextField id="username"  label="Username" variant="outlined" size ="small" onChange={({ target }) => setUsername(target.value)} />
       <TextField id="password" label="Password" type = "password" variant="outlined" size ="small"  onChange={({ target }) => setPassword(target.value)} />
       <Button id="loginBtn" type="submit" variant="contained" color ="primary" > Login </Button>
         

@@ -20,25 +20,18 @@ const Register = (props) => {
       
 
       <form id = "registerForm" onSubmit={registerHandle}>
-        <ul id = "registerFields">
-          <p>Register </p>
-          <li>
-            <TextField name ="username" label = "username" variant="outlined" size ="small"  onChange = {({ target }) => setUsername(target.value)}></TextField>    
-          </li> 
-          <li>
-            <TextField name ="password" label = "password" type ="password" variant="outlined" size ="small"  onChange = {({ target }) => setPassword(target.value)}></TextField>    
-          </li>
-          <li>
-            <TextField name ="confirmPassword"  type ="password" label = "Confirm Password" variant="outlined" size ="small" onChange = {({ target }) => setConfirmPasswword(target.value)} ></TextField> 
-          </li>
-           <li> 
-          <TextField name ="name" label = "Name/Author" variant="outlined" size ="small" onChange = {({ target }) => setName(target.value)} ></TextField>    
-           </li> 
-           <li>
-           <Button id="registerBtn" type="submit" variant="contained" color ="secondary" > Register </Button>
-           </li>  
-        </ul>  
-
+        
+        <label id= "registerText">Register </label>  
+        <TextField name ="username" label = "username" variant="outlined" size ="small"  onChange = {({ target }) => setUsername(target.value)}></TextField>    
+        <TextField name ="password" label = "password" type ="password" variant="outlined" size ="small"  onChange = {({ target }) => setPassword(target.value)}></TextField>    
+       
+         
+        <TextField name ="confirmPassword"  type ="password" label = "Confirm Password" variant="outlined" size ="small" onChange = {({ target }) => setConfirmPasswword(target.value)} ></TextField> 
+         
+        <TextField name ="name" label = "Name/Author" variant="outlined" size ="small" onChange = {({ target }) => setName(target.value)} ></TextField>    
+         
+        <Button id="registerBtn" type="submit" variant="contained"  > Register </Button>
+        
             
 
         </form>
