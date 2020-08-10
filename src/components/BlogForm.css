@@ -1,4 +1,16 @@
-#content{
-width: auto;
+#blog-form-fields{
 
+    display: flex;
+    flex-direction: column;
+    width: max;
+    
+  
+}
+#details-container{
+    display: flex;
+    margin-bottom: 10px;   
+}
+
+#submitBtn{
+    margin-top: 10px;
 }

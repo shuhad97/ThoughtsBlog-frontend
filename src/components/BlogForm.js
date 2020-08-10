@@ -17,20 +17,28 @@ const Forms = (props) => {
 
     return (
 
-        <div>
+        <div id= "blog-form-container">
             <Button className="hide" variant="contained" style={showForm} onClick={() => { setFormVisible(false) }}>Hide blog form</Button>
             <Button className="display" variant="contained" style={hideButton} onClick={() => { setFormVisible(true) }}>Post a blog</Button>
-            <form style={showForm} onSubmit={blogPostHandle}>
-
-                <TextField name="title" type="text" label = "Title"> </TextField>
-                <TextField name="author" type="text" label ="Author"></TextField> 
-                <TextField name="url" type="text" label = "Profile URL"> </TextField>
-                <TextField id="content" name="content"  multiline rows ={50} variant="outlined" type ="text" label ="content" ></TextField>
+            <form id= "blog-form-fields" style={showForm} onSubmit={blogPostHandle}>
+            
+               <div id = "details-container">
+                    <TextField  name="title" type="text" label = "Title" > </TextField>
                 
-               
+             
+                    <TextField  name="author" type="text" label ="Author"></TextField> 
+              
+                
+                    <TextField name="url" type="text" label = "Profile URL"> </TextField>
+               </div>
+                
+                <TextField id="content" name="content"   multiline rows={20}   variant="outlined" type ="text" label ="content" ></TextField>
+                <div>
                 <Button id="submitBtn" type="submit" value="Post"color ="secondary" variant="outlined"> Post </Button>
-
+                </div>
             </form>
+
+            
         </div>
     )
 
