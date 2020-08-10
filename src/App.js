@@ -77,7 +77,7 @@ const App = () => {
 
     return (
       <div>
-
+        
         <UserInfo user={user} setUser={setUser} />
         <BlogForm blogs={blogs} setBlogs={setBlogs} formVisible={formVisible} setFormVisible={setFormVisible} />
 
@@ -140,8 +140,9 @@ const App = () => {
           {user == null && registerForm()}
         </div>
       </div>
-      <h2>blogs</h2>
-      {user !== null && loadData()}
+     
+      {user !== null && loadData()} 
+      <h2>Blogs</h2>
       {loadBlogs()}
 
     </div>

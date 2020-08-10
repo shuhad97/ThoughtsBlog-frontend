@@ -1,6 +1,8 @@
 import React from 'react'
 import blogPostService from '../services/blogPostService'
-
+import Button from '@material-ui/core/Button';
+import { TextField } from '@material-ui/core';
+import './BlogForm.css'
 let blogs = undefined
 let setBlogs = undefined
 
@@ -16,15 +18,17 @@ const Forms = (props) => {
     return (
 
         <div>
-            <button className="hide" style={showForm} onClick={() => { setFormVisible(false) }}>Hide blog form</button>
-            <button className="display" style={hideButton} onClick={() => { setFormVisible(true) }}>Show blog form</button>
+            <Button className="hide" variant="contained" style={showForm} onClick={() => { setFormVisible(false) }}>Hide blog form</Button>
+            <Button className="display" variant="contained" style={hideButton} onClick={() => { setFormVisible(true) }}>Post a blog</Button>
             <form style={showForm} onSubmit={blogPostHandle}>
 
-                Title <input name="title" type="text" />
-                Author<input name="author" type="text" />
-                Content<textarea name="content"  ></textarea>
-                URL<input name="url" type="text" />
-                <input id="submitBtn" type="submit" value="Post" />
+                <TextField name="title" type="text" label = "Title"> </TextField>
+                <TextField name="author" type="text" label ="Author"></TextField> 
+                <TextField name="url" type="text" label = "Profile URL"> </TextField>
+                <TextField id="content" name="content"  multiline rows ={50} variant="outlined" type ="text" label ="content" ></TextField>
+                
+               
+                <Button id="submitBtn" type="submit" value="Post" > Post </Button>
 
             </form>
         </div>
