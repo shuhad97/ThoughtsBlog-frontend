@@ -28,7 +28,7 @@ const Forms = (props) => {
                 <TextField id="content" name="content"  multiline rows ={50} variant="outlined" type ="text" label ="content" ></TextField>
                 
                
-                <Button id="submitBtn" type="submit" value="Post" > Post </Button>
+                <Button id="submitBtn" type="submit" value="Post"color ="secondary" variant="outlined"> Post </Button>
 
             </form>
         </div>
