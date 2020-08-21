@@ -2,12 +2,16 @@ import axios from 'axios';
 
 const url = '/api/blogs/'
 
-const post = async (authorization, data) =>{
+const post =  (authorization, data) =>{
     
-    await axios.post(url, data, {
+     axios.post(url, data, {
         headers:{
             'Authorization': authorization
         }
+    }).then(response =>{
+
+        return response.data
+
     })
 
     

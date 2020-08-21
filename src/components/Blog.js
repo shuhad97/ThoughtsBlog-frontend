@@ -15,7 +15,7 @@ const Blog = ({ blog }) => {
     <div id = "blogpost-container">
       <div id="blogcontent-container">
         <h1 className="title"> {localBlogState.title}</h1>
-        <p className="author"> {localBlogState.author}</p>
+        <h2 className="author"> {localBlogState.author}</h2>
         <p className="content"> {localBlogState.content}</p>
       </div> 
       <div id = "blogLikes-containter">

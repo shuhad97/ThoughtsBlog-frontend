@@ -79,7 +79,7 @@ const App = () => {
       <div>
         
         <UserInfo user={user} setUser={setUser} />
-        <BlogForm blogs={blogs} setBlogs={setBlogs} formVisible={formVisible} setFormVisible={setFormVisible} />
+        <BlogForm  blogs={blogs} setBlogs={setBlogs} formVisible={formVisible} setFormVisible={setFormVisible} />
 
       </div>
     )
