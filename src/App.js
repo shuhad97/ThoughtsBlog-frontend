@@ -129,7 +129,7 @@ const App = () => {
   }, [])
 
   return (
-    <div>
+    <div id ='whole-page'>
 
       <div id = "header">
         <div id="loginForm">
@@ -142,7 +142,7 @@ const App = () => {
       </div>
      
       {user !== null && loadData()} 
-      <h2>Blogs</h2>
+      <h2 id= "page-title">Thoughts blogs</h2>
       {loadBlogs()}
 
     </div>

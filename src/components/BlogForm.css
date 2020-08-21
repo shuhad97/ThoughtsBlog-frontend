@@ -1,16 +1,22 @@
 #blog-form-fields{
 
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
+    background-color: #90A4AE;
     width: max;
-    
-  
+    border-radius: 5px;
+    padding-left: 5px;
+    margin-top: 5px;
 }
 #details-container{
+    margin-top: 5px;
     display: flex;
     margin-bottom: 10px;   
 }
 
+
+
 #submitBtn{
     margin-top: 10px;
+    margin-bottom: 5px;
 }

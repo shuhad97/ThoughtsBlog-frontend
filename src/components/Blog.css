@@ -1,0 +1,32 @@
+#blogpost-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #1DE9B6
+    ;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#blogcontent-container{
+    
+    background-color: #16a085;
+    padding-left: 5px;
+    border-radius: 5px;
+}
+
+#blogLikes-containter{
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.likesBtn{
+   
+    width: 20px;
+    height: 30px;
+}
+
+.likes{
+    display: inline;
+}

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Axios from 'axios'
+import Button from '@material-ui/core/Button';
+import './Blog.css'
 const baseUrl = '/api/blogs'
 
 //Individual blog posts
@@ -7,19 +9,26 @@ const Blog = ({ blog }) => {
 
   const [localBlogState, setLocalBlogState] = useState(blog)
   //Small component refresh rather than the whole blog list
+  
   return (
-    <div>
-      <h1 className="title">{localBlogState.title}</h1>
-      <p className="author">{localBlogState.author}</p>
-      <p className="content">{localBlogState.content}</p>
-    Likes<p className="likes">{localBlogState.likes ? localBlogState.likes : 0}</p>
 
-      <button className="likesBtn" onClick={() => {
+    <div id = "blogpost-container">
+      <div id="blogcontent-container">
+        <h1 className="title"> {localBlogState.title}</h1>
+        <p className="author"> {localBlogState.author}</p>
+        <p className="content"> {localBlogState.content}</p>
+      </div> 
+      <div id = "blogLikes-containter">
+        <Button className="likesBtn" variant="outlined" onClick={() => {
 
-        updateLike(localBlogState, setLocalBlogState)
+          updateLike(localBlogState, setLocalBlogState)
 
-      }} >like!</button>
-
+        }} >like!</Button>
+         &#x1F44D; 
+        
+        <p className="likes">{localBlogState.likes ? localBlogState.likes : 0}</p>
+      </div>
+     
     </div>
   )
 }
@@ -38,7 +47,6 @@ const updateLike = (localBlogState, setLocalBlogState) => {
       setLocalBlogState(response.data)
 
     })
-
 
 }
 

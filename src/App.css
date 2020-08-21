@@ -5,14 +5,30 @@
  
 }
 
-#loginText, #registerText, #user-name {
+body{
+    background-color: #263238;
+}
+
+
+
+#loginText, #registerText, #user-name, .title{
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-size: large;
 
 
 }
 
+#page-title{
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    color: aliceblue;
 
+}
+
+.author, .content{
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+
+}
 
 .MuiInputBase-root 	{
 
