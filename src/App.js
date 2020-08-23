@@ -8,7 +8,8 @@ import blogService from './services/blogs'
 import loginService from './services/loginService'
 import registerService from './services/registerService'
 import './App.css'
-import { createMuiTheme } from '@material-ui/core/styles';
+
+
 
 const App = () => {
 
@@ -56,7 +57,18 @@ const App = () => {
 
     const registerResponse = await registerService.registerProcess(registerUsername, name, registerPassword)
 
-    console.log(registerResponse)
+
+    if(registerResponse){
+
+      window.alert('Registration Successful')
+      
+
+    } else{
+
+      window.alert('Registration failed')
+
+    }
+ 
 
   }
 
@@ -138,6 +150,7 @@ const App = () => {
         <div id="registerForm">
 
           {user == null && registerForm()}
+         
         </div>
       </div>
      
