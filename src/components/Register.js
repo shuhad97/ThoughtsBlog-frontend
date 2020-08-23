@@ -22,17 +22,12 @@ const Register = (props) => {
       <form id = "registerForm" onSubmit={registerHandle}>
         
         <label id= "registerText">Register </label>  
+        
         <TextField name ="username" label = "username" variant="outlined" size ="small"  onChange = {({ target }) => setUsername(target.value)}></TextField>    
         <TextField name ="password" label = "password" type ="password" variant="outlined" size ="small"  onChange = {({ target }) => setPassword(target.value)}></TextField>    
-       
-         
         <TextField name ="confirmPassword"  type ="password" label = "Confirm Password" variant="outlined" size ="small" onChange = {({ target }) => setConfirmPasswword(target.value)} ></TextField> 
-         
         <TextField name ="name" label = "Name/Author" variant="outlined" size ="small" onChange = {({ target }) => setName(target.value)} ></TextField>    
-         
         <Button id="registerBtn" type="submit" variant="contained"  > Register </Button>
-        
-            
 
         </form>
       </div>
