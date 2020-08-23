@@ -18,7 +18,7 @@ const Blog = ({ blog }) => {
         <h2 className="author"> {localBlogState.author}</h2>
         <p className="content"> {localBlogState.content}</p>
       </div> 
-      <div id = "blogLikes-containter">
+      <div id = "blogLikes-container">
         <Button className="likesBtn" variant="outlined" onClick={() => {
 
           updateLike(localBlogState, setLocalBlogState)

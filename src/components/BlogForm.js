@@ -23,6 +23,7 @@ const Forms = (props) => {
             <form id= "blog-form-fields" style={showForm} onSubmit={blogPostHandle}>
             
                <div id = "details-container">
+                    
                     <TextField  name="title" type="text" label = "Title" > </TextField>
                 
              
@@ -30,6 +31,7 @@ const Forms = (props) => {
               
                 
                     <TextField name="url" type="text" label = "Profile URL"> </TextField>
+               
                </div>
                 
                 <TextField id="content" name="content"   multiline rows={20}   variant="outlined" type ="text" label ="content" ></TextField>
@@ -45,7 +47,7 @@ const Forms = (props) => {
 
 }
 
-const blogPostHandle = (event) => {
+const blogPostHandle =  async (event) => {
    
     event.preventDefault()
     const target = event.target
@@ -58,8 +60,9 @@ const blogPostHandle = (event) => {
         content: target.content.value
     }
 
-    blogPostService.post(authorization, data)
-    const newBlogList = blogs.concat(data)
+     const returnedData = await blogPostService.post(authorization, data)
+
+    const newBlogList = blogs.concat(returnedData)
     setBlogs(newBlogList)
 }
 
