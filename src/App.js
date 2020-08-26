@@ -37,7 +37,7 @@ const App = () => {
 
       }
       window.localStorage.setItem('user', JSON.stringify(localData))
-
+      
       setUser(loginResponse)
       setUsername('')
       setPassword('')
@@ -57,15 +57,17 @@ const App = () => {
 
     const registerResponse = await registerService.registerProcess(registerUsername, name, registerPassword)
 
-
-    if(registerResponse){
+    console.log(registerResponse.success + 'here')
+    if(registerResponse.success){
 
       window.alert('Registration Successful')
+      setRegisterPassword('')
+      setRegisterUsername('')
+      setName('')
       
-
     } else{
 
-      window.alert('Registration failed')
+      window.alert(registerResponse.message)
 
     }
  
@@ -103,8 +105,8 @@ const App = () => {
 
     return(
     
-    <Register setUsername = {setRegisterUsername} setPassword = {setRegisterPassword} setName = {setName}
-    registerHandle = {registerHandle} />
+    <Register registerUsername = {registerUsername} registerPassword = {registerPassword} setUsername = {setRegisterUsername} setPassword = {setRegisterPassword} setName = {setName}
+    registerHandle = {registerHandle} name = {name} />
     
     )
 
