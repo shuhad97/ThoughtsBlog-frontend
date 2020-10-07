@@ -57,7 +57,7 @@ const App = () => {
 
     const registerResponse = await registerService.registerProcess(registerUsername, name, registerPassword)
 
-    console.log(registerResponse.success + 'here')
+    
     if(registerResponse.success){
 
       window.alert('Registration Successful')
